@@ -16,7 +16,7 @@ public class ControlPanelController {
     @FXML
     public void initialize(){
         if(!App.currentUser.isAdmin()){
-            operationsBox.getChildren().clear();
+            adminBox.getChildren().clear();
         }
         
         
