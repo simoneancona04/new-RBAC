@@ -38,6 +38,8 @@ public class App extends Application {
 
         Role Rtest = new Role("fornaio","prepara cibo");
         Rtest.addOperation(new Operation("fai la pizza","impasta etc"));
+        Rtest.addOperation(new Operation("fai la pasta","impasta etc"));
+        Rtest.addOperation(new Operation("fai il pane","impasta etc"));
 
         User Utest = new User("marco","123");
         Utest.addRole(Rtest);

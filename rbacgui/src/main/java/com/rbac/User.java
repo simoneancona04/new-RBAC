@@ -31,6 +31,18 @@ public class User {
 
     public User(){}
 
+    public ArrayList<Operation> getOperations(){
+        ArrayList<Operation> tmp = new ArrayList<>();
+        for(Role role : roles){
+            for(Operation o: role.getOperations()){
+                if(!tmp.contains(o))
+                    tmp.add(o);
+            }
+        }
+
+        return tmp;
+    }
+
     public void addRole(Role role){
         this.roles.add(role);
     }

@@ -19,7 +19,7 @@
             <HBox alignment="CENTER" prefHeight="51.0" prefWidth="63.0" BorderPane.alignment="CENTER">
                <children>
                   <Circle fill="WHITE" radius="36.0" stroke="#3ec9be" strokeType="INSIDE" strokeWidth="5.0" style="-fx-cursor: pointer;" />
-                  <Label text="Nome utente" textFill="WHITE">
+                  <Label fx:id="nameLabel" text="Nome utente" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
