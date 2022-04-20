@@ -1,7 +1,6 @@
 package com.rbac;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -29,7 +28,7 @@ public class OperationController {
             titleLabel.setText("Modifica Operazione");
             nameField.setText(App.selectedOperation.getName());
             descriptionField.setText(App.selectedOperation.getDescription());
-            createButton.setText("Mod");
+            createButton.setText("Salva");
         }
     }
 
@@ -54,6 +53,7 @@ public class OperationController {
         }
         else{
             // TODO inserire in un array di operations
+            App.allOperations.add(new Operation(name, description));
         }
 
 

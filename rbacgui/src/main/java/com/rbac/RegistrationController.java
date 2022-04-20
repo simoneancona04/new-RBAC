@@ -23,7 +23,9 @@ public class RegistrationController {
     Button cancelButton;
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
+        //App.setRoot("role");
+
         if(App.first) {
             adminCheckBox.setSelected(true);
         }

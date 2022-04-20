@@ -15,7 +15,6 @@ public class LoginController {
 
     @FXML
     private void switchWindow() throws IOException {
-
         String password = passwordField.getText();
         String username = usernameField.getText();
         

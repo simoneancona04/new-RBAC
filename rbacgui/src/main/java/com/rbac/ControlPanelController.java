@@ -40,7 +40,9 @@ public class ControlPanelController {
     }
 
     @FXML
-    public void showUsers(){
+    public void showUsers() throws IOException{
+        App.setRoot("role");
+
 
     }
 

@@ -21,6 +21,8 @@ public class App extends Application {
     static User currentUser;
     static Role selectedRole;
     static Operation selectedOperation;
+    static ArrayList<Role> allRoles = new ArrayList<>();
+    static ArrayList<Operation> allOperations = new ArrayList<>();
     static boolean first = false;
     static ArrayList<User> users = new ArrayList<User>();
     static final String filename = "rbacgui/src/main/java/com/local/data.json";
