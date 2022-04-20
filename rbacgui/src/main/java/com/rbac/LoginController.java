@@ -21,7 +21,6 @@ public class LoginController {
 
         String password = passwordField.getText();
         String username = usernameField.getText();
-        System.out.println(username + " " + password);
         
         if (username == null || password == null) return;
         
@@ -32,6 +31,6 @@ public class LoginController {
                 return;
             }
         }
-        new WarningController();
+        new WarningController("ciao");
     }
 }
