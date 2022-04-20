@@ -1,5 +1,6 @@
 package com.rbac;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
@@ -38,7 +39,28 @@ public class RegistrationController {
         }
     }
 
-    public void createUser() {
+    @FXML
+    public void createUser() throws IOException {
+
+        String password = passwordField.getText();
+        String username = usernameField.getText();
+        
+        if (username == "" || password == ""){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Username o Password non validi");
+            alert.showAndWait();
+            return;
+        }
+
+        
         App.users.add(new User(usernameField.getText(), passwordField.getText(), new ArrayList<Role>(), adminCheckBox.isSelected()));
+        
+        if(App.first) {
+            App.currentUser = App.users.get(0);
+            App.setRoot("login");
+        }
+        else{
+            App.setRoot("controlPanel");
+        }
     }
 }

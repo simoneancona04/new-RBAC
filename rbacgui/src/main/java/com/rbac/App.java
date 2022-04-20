@@ -19,9 +19,9 @@ public class App extends Application {
 
     private static Scene scene;
     static User currentUser;
-    static boolean first;
+    static boolean first = false;
     static ArrayList<User> users = new ArrayList<User>();
-    static final String filename = "rbacgui/src/main/java/com/local/.json";
+    static final String filename = "rbacgui/src/main/java/com/local/data.json";
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -62,7 +62,10 @@ public class App extends Application {
             users = new ArrayList<User>();
         }
 
-        if(users.size() == 0) {first = true;}
+        if(users.size() == 0) {
+            first = true;
+        }
+
 
         launch(args);
     }

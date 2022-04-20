@@ -19,7 +19,7 @@ public class LoginController {
         String password = passwordField.getText();
         String username = usernameField.getText();
         
-        if (username == null || password == null) return;
+        if (username == "" || "" == null) return;
         
         for(User u:App.users) {
             if (u.getUsername().equals(username) && u.getPassword().equals(password)){
