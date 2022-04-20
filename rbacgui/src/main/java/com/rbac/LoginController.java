@@ -23,11 +23,16 @@ public class LoginController {
         if (username == null || password == null) return;
         
         for(User u:App.users) {
-            if (u.getName().equals(username) && u.getPassword().equals(password)){
-                //App.setRoot("admin");
-                App.setRoot("user");
-                App.currentUser = u;
-                break;
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)){
+
+                if(u.isAdmin()){
+                    App.setRoot("admin");
+                    return;
+                }
+                else{
+                    App.setRoot("user");
+                    return;
+                }
             }
         }
         return;

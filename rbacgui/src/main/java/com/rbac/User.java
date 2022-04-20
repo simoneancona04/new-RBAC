@@ -16,6 +16,13 @@ public class User {
         this.roles = new ArrayList<Role>();
     }
 
+    public User(String username, String password,Boolean isAdmin){
+        this.username = username;
+        this.password = password;
+        this.roles = null;
+        this.isAdmin = isAdmin;
+    }
+
     public User(String username, String password){
         this.username = username;
         this.password = password;
@@ -32,7 +39,7 @@ public class User {
         this.isAdmin = admin;
     }
     
-    public Boolean getIsAdmin(){
+    public Boolean isAdmin(){
         return isAdmin;
     }
 

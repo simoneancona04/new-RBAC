@@ -35,7 +35,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        
+        users.add(new User("luca","123", true));
         launch();
     }
 
