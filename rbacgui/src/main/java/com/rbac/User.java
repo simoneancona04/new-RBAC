@@ -8,8 +8,6 @@ public class User {
     private Boolean isAdmin;
     private ArrayList<Role> roles;
 
-    
-
     public User(String username, String password, ArrayList<Role> roles){
         this.username = username;
         this.password = password;
