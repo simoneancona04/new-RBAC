@@ -2,12 +2,15 @@ package com.rbac;
 
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.*;
+
 public class Role {
     private String name;
     private String description;
     private ArrayList<Operation> operations;
 
-    public Role(String name, String description, ArrayList<Operation> operations) {
+    @JsonCreator
+    public Role(@JsonProperty("name") String name, @JsonProperty("description") String description, @JsonProperty("operations") ArrayList<Operation> operations) {
         this.name = name;
         this.description = description;
         this.operations = operations;

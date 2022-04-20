@@ -2,19 +2,23 @@ package com.rbac;
 
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.*;
+
 public class User {
     private String username;
     private String password;
     private Boolean isAdmin;
     private ArrayList<Role> roles;
 
-    public User(String username, String password, ArrayList<Role> roles){
+    @JsonCreator
+    public User(@JsonProperty("username") String username, @JsonProperty("password") String password, @JsonProperty("roles") ArrayList<Role> roles, @JsonProperty("isAdmin") Boolean isAdmin) {
         this.username = username;
         this.password = password;
         this.roles = new ArrayList<Role>();
+        this.isAdmin = isAdmin;
     }
 
-    public User(String username, String password,Boolean isAdmin){
+    public User(String username, String password, Boolean isAdmin){
         this.username = username;
         this.password = password;       
         this.roles = new ArrayList<Role>();

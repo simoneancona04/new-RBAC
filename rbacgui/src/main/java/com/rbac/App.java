@@ -5,8 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.stage.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * JavaFX App
@@ -15,11 +19,16 @@ public class App extends Application {
 
     private static Scene scene;
     static User currentUser;
+    static boolean first;
     static ArrayList<User> users = new ArrayList<User>();
+    static final String filename = "rbacgui/src/main/java/com/local/.json";
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("login"), 800, 600);
+        if(first) 
+            scene = new Scene(loadFXML("registration"), 600, 400);
+        else
+            scene = new Scene(loadFXML("login"), 600, 400);
         stage.setScene(scene);
         stage.show();
     }
@@ -28,23 +37,34 @@ public class App extends Application {
         scene.setRoot(loadFXML(fxml));
     }
 
+    @Override
+    public void stop() {
+        ObjectMapper om = new ObjectMapper();
+        try {
+            om.writeValue(new File(filename), users);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            
+        }
+    }
+
     public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
     public static void main(String[] args) {
-        users.add(new User("luca","123", true));
+        ObjectMapper om = new ObjectMapper();
+        try {
+            users = om.readValue(new File(filename), new TypeReference<ArrayList<User>>(){});
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            users = new ArrayList<User>();
+        }
 
-        Role Rtest = new Role("fornaio","prepara cibo");
-        Rtest.addOperation(new Operation("fai la pizza","impasta etc"));
-        Rtest.addOperation(new Operation("fai la pasta","impasta etc"));
-        Rtest.addOperation(new Operation("fai il pane","impasta etc"));
+        if(users.size() == 0) {first = true;}
 
-        User Utest = new User("marco","123");
-        Utest.addRole(Rtest);
-        users.add(Utest);
-        launch();
+        launch(args);
     }
 
 }

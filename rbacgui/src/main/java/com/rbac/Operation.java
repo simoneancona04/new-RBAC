@@ -1,10 +1,13 @@
 package com.rbac;
 
+import com.fasterxml.jackson.annotation.*;
+
 public class Operation {
     private String name;
     private String description;
 
-    public Operation(String name, String description) {
+    @JsonCreator
+    public Operation(@JsonProperty("name") String name, @JsonProperty("description") String description) {
         this.name = name;
         this.description = description;
     }
