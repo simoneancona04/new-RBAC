@@ -2,10 +2,13 @@ package com.rbac;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-public class LoginController{
+public class LoginController {
 
     @FXML
     TextField usernameField;
@@ -29,8 +32,6 @@ public class LoginController{
                 return;
             }
         }
-        //TODO alert info incorrette
-        return;
-
+        new WarningController();
     }
 }
