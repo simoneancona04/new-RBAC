@@ -40,6 +40,23 @@ public class ControlPanelController {
     }
 
     @FXML
+    public void showUsers(){
+
+    }
+
+    @FXML
+    public void showRoles(){
+        
+    }
+
+    @FXML
+    public void showOperations(){
+        
+    }
+
+
+
+    @FXML
     public void cancel() throws IOException{
         App.setRoot("login");
     }

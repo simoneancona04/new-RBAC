@@ -19,6 +19,8 @@ public class App extends Application {
 
     private static Scene scene;
     static User currentUser;
+    static Role selectedRole;
+    static Operation selectedOperation;
     static boolean first = false;
     static ArrayList<User> users = new ArrayList<User>();
     static final String filename = "rbacgui/src/main/java/com/local/data.json";
