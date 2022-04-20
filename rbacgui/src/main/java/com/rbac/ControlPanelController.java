@@ -38,4 +38,9 @@ public class ControlPanelController {
         
         
     }
+
+    @FXML
+    public void cancel() throws IOException{
+        App.setRoot("login");
+    }
 }

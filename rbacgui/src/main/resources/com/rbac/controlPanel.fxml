@@ -36,7 +36,7 @@
          <bottom>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #ffaaaa;" text="Esci" textFill="#c90000" />
+                  <Button mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #ffaaaa;" text="Esci" textFill="#c90000" />
                </children>
                <BorderPane.margin>
                   <Insets left="10.0" right="10.0" />
