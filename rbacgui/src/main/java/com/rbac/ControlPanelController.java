@@ -2,6 +2,7 @@ package com.rbac;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
@@ -30,6 +31,7 @@ public class ControlPanelController {
             Button tmp;
             for(Operation o:App.currentUser.getOperations()){
                 tmp = new Button(o.getName());
+                FlowPane.setMargin(tmp,new Insets(5, 5, 5, 5));
                 operationsBox.getChildren().add(tmp);
             }
         }
