@@ -36,6 +36,13 @@ public class App extends Application {
 
     public static void main(String[] args) {
         users.add(new User("luca","123", true));
+
+        Role Rtest = new Role("fornaio","prepara cibo");
+        Rtest.addOperation(new Operation("fai la pizza","impasta etc"));
+
+        User Utest = new User("marco","123");
+        Utest.addRole(Rtest);
+        users.add(Utest);
         launch();
     }
 

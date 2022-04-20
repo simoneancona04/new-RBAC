@@ -18,16 +18,13 @@ public class adminController {
         Button tmp;
 
         for(User u:App.users){
+            if(u.isAdmin())continue;
             tmp = new Button(u.getUsername());
             //tmp.onActionProperty(e->{})
-            tmp.setPrefWidth(240);
+            tmp.setPrefWidth(230);
             usersBox.getChildren().add(tmp);
         }
         
     }
 
-    @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
-    }
 }
