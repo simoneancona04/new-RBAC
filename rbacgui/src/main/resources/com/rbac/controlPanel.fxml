@@ -17,9 +17,17 @@
    <left>
       <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #112233;" BorderPane.alignment="CENTER">
          <top>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="51.0" prefWidth="63.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="51.0" prefWidth="63.0" BorderPane.alignment="CENTER">
                <children>
                   <Circle fill="WHITE" radius="36.0" stroke="#3ec9be" strokeType="INSIDE" strokeWidth="5.0" style="-fx-cursor: pointer;" />
+                  <Label text="Nome utente" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
                <padding>
                   <Insets top="10.0" />
