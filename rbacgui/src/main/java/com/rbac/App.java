@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class App extends Application {
 
     private static Scene scene;
+    static User currentUser;
     static ArrayList<User> users = new ArrayList<User>();
 
     @Override

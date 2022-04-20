@@ -24,17 +24,12 @@ public class LoginController{
         
         for(User u:App.users) {
             if (u.getUsername().equals(username) && u.getPassword().equals(password)){
-
-                if(u.isAdmin()){
-                    App.setRoot("admin");
-                    return;
-                }
-                else{
-                    App.setRoot("user");
-                    return;
-                }
+                App.currentUser = u;
+                App.setRoot("controlPanel");
+                return;
             }
         }
+        //TODO alert info incorrette
         return;
 
     }
