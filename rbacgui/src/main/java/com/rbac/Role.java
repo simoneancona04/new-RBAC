@@ -10,12 +10,13 @@ public class Role {
     public Role(String name, String description, ArrayList<Operation> operations) {
         this.name = name;
         this.description = description;
-        this.operations = new ArrayList<Operation>();
+        this.operations = operations;
     }
 
     public Role(String name, String description){
         this.name = name;
         this.description = description;
+        this.operations = new ArrayList<Operation>();
     }
 
     public Role(){}

@@ -16,14 +16,16 @@ public class User {
 
     public User(String username, String password,Boolean isAdmin){
         this.username = username;
-        this.password = password;
-        this.roles = null;
+        this.password = password;       
+        this.roles = new ArrayList<Role>();
         this.isAdmin = isAdmin;
     }
 
     public User(String username, String password){
         this.username = username;
         this.password = password;
+        this.isAdmin = false;
+
         this.roles = new ArrayList<Role>();
     }
 
