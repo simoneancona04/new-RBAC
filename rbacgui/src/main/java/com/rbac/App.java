@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * JavaFX App
@@ -15,10 +16,11 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    static ArrayList<User> users = new ArrayList<User>();
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("primary"), 800, 600);
         stage.setScene(scene);
         stage.show();
     }
@@ -33,6 +35,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        
         launch();
     }
 

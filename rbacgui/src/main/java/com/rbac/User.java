@@ -5,7 +5,10 @@ import java.util.ArrayList;
 public class User {
     private String username;
     private String password;
+    private Boolean isAdmin;
     private ArrayList<Role> roles;
+
+    
 
     public User(String username, String password, ArrayList<Role> roles){
         this.username = username;
@@ -24,7 +27,14 @@ public class User {
     public void addRole(Role role){
         this.roles.add(role);
     }
+
+    public void setAdmin(Boolean admin){
+        this.isAdmin = admin;
+    }
     
+    public Boolean getIsAdmin(){
+        return isAdmin;
+    }
 
     public String getUsername(){
         return username;
