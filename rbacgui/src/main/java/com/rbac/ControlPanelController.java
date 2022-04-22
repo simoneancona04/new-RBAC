@@ -51,7 +51,9 @@ public class ControlPanelController {
     }
 
     @FXML
-    public void showOperations(){
+    public void showOperations() throws IOException{
+        App.setRoot("showOperations");
+
         
     }
 

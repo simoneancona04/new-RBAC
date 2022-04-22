@@ -52,13 +52,17 @@ public class OperationController {
             App.selectedOperation.setDescription(description);
         }
         else{
-            // TODO inserire in un array di operations
             App.allOperations.add(new Operation(name, description));
         }
 
+        App.selectedOperation = null;
 
-
-        App.setRoot("controlPanel"); //TODO  andare a view operations
+        App.setRoot("showOperations"); //TODO  andare a view operations
         
+    }
+    @FXML
+    public void cancelButton() throws IOException{
+        App.selectedOperation = null;
+        App.setRoot("showOperations");
     }
 }

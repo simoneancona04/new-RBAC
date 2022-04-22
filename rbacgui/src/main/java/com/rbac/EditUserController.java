@@ -16,7 +16,7 @@ public class EditUserController {
     TextField nameField;
 
     @FXML
-    TextField passwordField;
+    PasswordField passwordField;
 
     @FXML
     FlowPane roleBox;
@@ -44,7 +44,7 @@ public class EditUserController {
         for(Role r: App.allRoles){
             Label lab = new Label(r.getName());
             tmp = new CheckBox();
-            tmp.setSelected(App.selectedUser.getRoles().contains(r));
+            if(App.selectedUser!=null)tmp.setSelected(App.selectedUser.getRoles().contains(r));
             checkboxes.add(tmp);  
             lab.setGraphic(tmp);
             lab.setContentDisplay(ContentDisplay.LEFT);

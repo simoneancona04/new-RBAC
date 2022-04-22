@@ -27,12 +27,12 @@
    <bottom>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="cancelButton" fx:id="cancelButton" mnemonicParsing="false" style="-fx-background-color: #ffaaaa;" text="Annulla" textFill="#c90000">
+            <Button id="cancelButton" fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButton" style="-fx-background-color: #ffaaaa;" text="Annulla" textFill="#c90000">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
-            <Button id="createButton" fx:id="createButton" mnemonicParsing="false" onAction="#createUser" text="Crea" />
+            <Button id="createButton" fx:id="createButton" mnemonicParsing="false" onAction="#createOperation" text="Crea" />
          </children>
          <BorderPane.margin>
             <Insets />

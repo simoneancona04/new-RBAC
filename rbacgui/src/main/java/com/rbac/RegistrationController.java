@@ -70,7 +70,9 @@ public class RegistrationController {
             App.first = false;
             App.setRoot("controlPanel");
         }
-        App.setRoot("showUsers");
+        else{
+            App.setRoot("showUsers");
+        }
         
     }
 
