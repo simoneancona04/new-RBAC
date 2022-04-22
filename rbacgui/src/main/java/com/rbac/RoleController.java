@@ -27,8 +27,6 @@ public class RoleController {
     @FXML
     Button cancelButton;
 
-
-
     @FXML
     public void initialize() {
         if(App.selectedRole != null) {

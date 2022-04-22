@@ -14,7 +14,7 @@ public class User {
     public User(@JsonProperty("username") String username, @JsonProperty("password") String password, @JsonProperty("roles") ArrayList<Role> roles, @JsonProperty("isAdmin") Boolean isAdmin) {
         this.username = username;
         this.password = password;
-        this.roles = new ArrayList<Role>();
+        this.roles = roles;
         this.isAdmin = isAdmin;
     }
 
@@ -35,6 +35,7 @@ public class User {
 
     public User(){}
 
+    @JsonIgnore
     public ArrayList<Operation> getOperations(){
         ArrayList<Operation> tmp = new ArrayList<>();
         for(Role role : roles){

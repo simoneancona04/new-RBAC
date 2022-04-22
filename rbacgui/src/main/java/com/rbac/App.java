@@ -69,9 +69,31 @@ public class App extends Application {
         if(users.size() == 0) {
             first = true;
         }
-
+        
+        findAllRoles();
+        findAllOperation();
 
         launch(args);
+    }
+
+    public static void findAllRoles() {
+        for(User u : users) {
+            for(Role r : u.getRoles()) {
+                if(!allRoles.contains(r)) {
+                    allRoles.add(r);
+                }
+            }
+        }
+    }
+
+    public static void findAllOperation() {
+        for(Role r : allRoles) {
+            for(Operation op : r.getOperations()) {
+                if(!allOperations.contains(op)) {
+                    allOperations.add(op);
+                }
+            }
+        }
     }
 
 }

@@ -53,4 +53,17 @@ public class Role {
     public void setOperations(ArrayList<Operation> operations){
         this.operations = operations;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        Role r = (Role)o;
+        if(r.operations.size() != operations.size()) return false;
+        for(int i = 0; i < operations.size(); i++) {
+            if(!r.operations.get(i).equals(operations.get(i))) return false;
+
+        }
+
+        if(!(r.name.equals(name) && r.description.equals(description))) return false;
+        return true;
+    }
 }

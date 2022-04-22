@@ -26,4 +26,11 @@ public class Operation {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public boolean equals(Object o){
+        Operation op = (Operation)o;
+
+        return op.name.equals(name) && op.description.equals(description);
+    }
 }

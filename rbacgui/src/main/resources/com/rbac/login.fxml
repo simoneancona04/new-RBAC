@@ -28,11 +28,11 @@
    <bottom>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" style="-fx-background-color: #ffaaaa;" text="Annulla" textFill="#c90000">
+            <!-- <Button mnemonicParsing="false" style="-fx-background-color: #ffaaaa;" text="Annulla" textFill="#c90000">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
-            </Button>
+            </Button> -->
             <Button mnemonicParsing="false" onAction="#switchWindow" text="Accedi" />
          </children>
          <BorderPane.margin>

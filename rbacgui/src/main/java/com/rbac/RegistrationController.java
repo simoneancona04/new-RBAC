@@ -23,12 +23,19 @@ public class RegistrationController {
     Button cancelButton;
 
     @FXML
+    Label adminLabel;
+
+    @FXML
     public void initialize() throws IOException {
         //App.setRoot("role");
-
+        adminCheckBox.setVisible(App.first);
+        adminLabel.setVisible(App.first);
+        cancelButton.setVisible(!App.first);
+        
         if(App.first) {
             adminCheckBox.setSelected(true);
         }
+
     }
 
     public void check() {
@@ -63,5 +70,10 @@ public class RegistrationController {
         }
         App.setRoot("controlPanel");
         
+    }
+
+    @FXML
+    public void cancel() throws IOException {
+        App.setRoot("controlPanel");
     }
 }
