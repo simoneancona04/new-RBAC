@@ -67,13 +67,14 @@ public class RegistrationController {
         if(App.first) {
             App.currentUser = App.users.get(0);
             App.first = false;
+            App.setRoot("controlPanel");
         }
-        App.setRoot("controlPanel");
+        App.setRoot("showUsers");
         
     }
 
     @FXML
     public void cancel() throws IOException {
-        App.setRoot("controlPanel");
+        App.setRoot("showUsers");
     }
 }

@@ -1,1 +1,1 @@
-[{"username":"mimmo","password":"123","roles":[{"name":"studente","description":"studia","operations":[{"name":"mangia","description":"se no muore"}]}],"admin":true}]
+[{"username":"mimmo","password":"1234","roles":[],"admin":true},{"username":"marco","password":"1","roles":[],"admin":false}]

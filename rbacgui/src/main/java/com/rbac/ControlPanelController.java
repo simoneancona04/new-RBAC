@@ -26,22 +26,20 @@ public class ControlPanelController {
 
         if(!App.currentUser.isAdmin()){
             adminBox.getChildren().clear();
-            operationsBox.getChildren().clear();
-
-            Button tmp;
-            for(Operation o:App.currentUser.getOperations()){
-                tmp = new Button(o.getName());
-                FlowPane.setMargin(tmp,new Insets(5, 5, 5, 5));
-                operationsBox.getChildren().add(tmp);
-            }
         }
-        
-        
+        operationsBox.getChildren().clear();
+        Button tmp;
+        for(Operation o:App.currentUser.getOperations()){
+            tmp = new Button(o.getName());
+            FlowPane.setMargin(tmp,new Insets(5, 5, 5, 5));
+            operationsBox.getChildren().add(tmp);
+        }
+
     }
 
     @FXML
     public void showUsers() throws IOException{
-        App.setRoot("registration");
+        App.setRoot("showUsers");
 
 
     }

@@ -21,6 +21,7 @@ public class App extends Application {
     static User currentUser;
     static Role selectedRole;
     static Operation selectedOperation;
+    static User selectedUser;
     static ArrayList<Role> allRoles = new ArrayList<>();
     static ArrayList<Operation> allOperations = new ArrayList<>();
     static boolean first = false;
@@ -46,10 +47,7 @@ public class App extends Application {
         ObjectMapper om = new ObjectMapper();
         try {
             om.writeValue(new File(filename), users);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            
-        }
+        } catch (IOException e) {}
     }
 
     public static Parent loadFXML(String fxml) throws IOException {
@@ -62,7 +60,7 @@ public class App extends Application {
         try {
             users = om.readValue(new File(filename), new TypeReference<ArrayList<User>>(){});
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            
             users = new ArrayList<User>();
         }
 

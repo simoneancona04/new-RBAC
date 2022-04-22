@@ -1,7 +1,6 @@
 package com.rbac;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -53,7 +52,6 @@ public class RoleController {
 
         String name = nameField.getText();
         String description = descriptionField.getText();
-        ArrayList<Role> roles = new ArrayList<Role>();
         
         if (name == "" || description == ""){
             Alert alert = new Alert(Alert.AlertType.ERROR);
