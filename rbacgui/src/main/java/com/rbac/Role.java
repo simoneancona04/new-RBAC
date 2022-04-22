@@ -66,4 +66,8 @@ public class Role {
         if(!(r.name.equals(name) && r.description.equals(description))) return false;
         return true;
     }
+
+    public void removeOperation(Operation operation) {
+        operations.remove(operation);
+    }
 }

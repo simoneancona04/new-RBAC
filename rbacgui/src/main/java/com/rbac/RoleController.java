@@ -1,6 +1,7 @@
 package com.rbac;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -18,37 +19,43 @@ public class RoleController {
     TextField descriptionField;
 
     @FXML
-    FlowPane operationsBox;
+    FlowPane operationBox;
 
     @FXML
-    Button createButton;
+    Button saveButton;
 
     @FXML
     Button cancelButton;
 
+    ArrayList<CheckBox> checkboxes;
+
     @FXML
     public void initialize() {
         if(App.selectedRole != null) {
-            titleLabel.setText("Modifica Ruolo");
+            titleLabel.setText("Modifica " + App.selectedRole.getName() );
             nameField.setText(App.selectedRole.getName());
             descriptionField.setText(App.selectedRole.getDescription());
-            createButton.setText("Salva");
+            saveButton.setText("Salva");
         }
-        operationsBox.getChildren().clear();
+        operationBox.getChildren().clear();
+        CheckBox tmp;
+        checkboxes = new ArrayList<>();
+
         for(Operation o: App.allOperations){
             Label lab = new Label(o.getName());
-            lab.setGraphic(new CheckBox()); //TODO aggiungere un riferimento per capire se è spuntato
+            tmp = new CheckBox();
+            if(App.selectedRole!=null) tmp.setSelected(App.selectedRole.getOperations().contains(o));
+            checkboxes.add(tmp);  
+            lab.setGraphic(tmp);
             lab.setContentDisplay(ContentDisplay.LEFT);
-            operationsBox.getChildren().add(lab);
+            operationBox.getChildren().add(lab);
         }
-
-
 
     }
 
 
     @FXML
-    public void createRole() throws IOException {
+    public void save() throws IOException {
 
         String name = nameField.getText();
         String description = descriptionField.getText();
@@ -59,20 +66,30 @@ public class RoleController {
             alert.showAndWait();
             return;
         }
+        Role tmp = new Role();
 
-        
-        if(App.selectedRole != null) {
-            App.selectedRole.setName(name);
-            App.selectedRole.setDescription(description);
+
+        App.admin.addRole(tmp);
+        App.allRoles.add(tmp);
+        App.selectedRole = tmp;
+        App.selectedRole.setName(name);
+        App.selectedRole.setDescription(description);
+        App.selectedRole.setOperations(new ArrayList<Operation>());
+
+        for(int i = 0; i < checkboxes.size(); i++){
+            if(checkboxes.get(i).isSelected()) App.selectedRole.addOperation(App.allOperations.get(i));
+            else App.selectedRole.removeOperation(App.allOperations.get(i));
         }
-        else{
-            // TODO inserire in un array di operations
-            App.allRoles.add(new Role(name,description));
-        }
+       
 
+        App.selectedRole = null;
+        App.setRoot("showRoles");
+    }
 
-
-        App.setRoot("controlPanel"); //TODO  andare a view operations?
-        
+    
+    @FXML
+    public void cancelButton() throws IOException{
+        App.selectedRole = null;
+        App.setRoot("showRoles");
     }
 }

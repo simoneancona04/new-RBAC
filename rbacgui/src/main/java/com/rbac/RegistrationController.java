@@ -66,6 +66,7 @@ public class RegistrationController {
         
         if(App.first) {
             App.currentUser = App.users.get(0);
+            App.admin = App.users.get(0);
             App.first = false;
             App.setRoot("controlPanel");
         }

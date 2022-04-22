@@ -22,6 +22,7 @@ public class App extends Application {
     static Role selectedRole;
     static Operation selectedOperation;
     static User selectedUser;
+    static User admin;
     static ArrayList<Role> allRoles = new ArrayList<>();
     static ArrayList<Operation> allOperations = new ArrayList<>();
     static boolean first = false;
@@ -68,10 +69,20 @@ public class App extends Application {
             first = true;
         }
         
+        findAdmin();
         findAllRoles();
         findAllOperation();
 
         launch(args);
+    }
+
+    public static void findAdmin() {
+        for(User u : users) {
+            if(u.isAdmin()){
+                admin = u;
+                return;
+            }
+        }
     }
 
     public static void findAllRoles() {
