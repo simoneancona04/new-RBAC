@@ -57,7 +57,7 @@ public class OperationController {
 
         App.selectedOperation = null;
 
-        App.setRoot("showOperations"); //TODO  andare a view operations
+        App.setRoot("showOperations"); 
         
     }
     @FXML
