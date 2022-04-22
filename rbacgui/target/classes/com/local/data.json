@@ -1,0 +1,1 @@
+[{"username":"mimmo","password":"123","roles":[{"name":"studente","description":"colui che va a scuola","operations":[{"name":"studia","description":"apri il libro etc"}]}],"admin":true},{"username":"luca","password":"1","roles":[{"name":"studente","description":"colui che va a scuola","operations":[{"name":"studia","description":"apri il libro etc"}]}],"admin":false}]

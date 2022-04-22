@@ -66,12 +66,15 @@ public class RoleController {
             alert.showAndWait();
             return;
         }
-        Role tmp = new Role();
+        
+        
+        if(App.selectedRole==null){
+            Role tmp = new Role();
+            App.admin.addRole(tmp);
+            App.allRoles.add(tmp);
+            App.selectedRole = tmp;
 
-
-        App.admin.addRole(tmp);
-        App.allRoles.add(tmp);
-        App.selectedRole = tmp;
+        }
         App.selectedRole.setName(name);
         App.selectedRole.setDescription(description);
         App.selectedRole.setOperations(new ArrayList<Operation>());
