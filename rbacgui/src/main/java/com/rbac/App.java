@@ -18,15 +18,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class App extends Application {
 
     private static Scene scene;
-    static User currentUser;
-    static Role selectedRole;
-    static Operation selectedOperation;
-    static User selectedUser;
-    static User admin;
     static ArrayList<Role> allRoles = new ArrayList<>();
     static ArrayList<Operation> allOperations = new ArrayList<>();
-    static boolean first = false;
     static ArrayList<User> users = new ArrayList<User>();
+    
+    static User currentUser;
+    static User selectedUser;
+    static Role selectedRole;
+    static Operation selectedOperation;
+    
+    static User admin;
+    static boolean first = false;
     static final String filename = "rbacgui/src/main/java/com/local/data.json";
 
     @Override
