@@ -22,6 +22,7 @@ public class App extends Application {
     static ArrayList<Operation> allOperations = new ArrayList<>();
     static ArrayList<User> users = new ArrayList<User>();
     
+    
     static User currentUser;
     static User selectedUser;
     static Role selectedRole;
