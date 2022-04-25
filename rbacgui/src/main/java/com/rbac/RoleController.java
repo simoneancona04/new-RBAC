@@ -27,15 +27,26 @@ public class RoleController {
     @FXML
     Button cancelButton;
 
+    @FXML
+    Button removeButton;
+
+    @FXML
+    HBox hBox;
+
     ArrayList<CheckBox> checkboxes;
 
     @FXML
     public void initialize() {
+        
+
         if(App.selectedRole != null) {
             titleLabel.setText("Modifica " + App.selectedRole.getName() );
             nameField.setText(App.selectedRole.getName());
             descriptionField.setText(App.selectedRole.getDescription());
             saveButton.setText("Salva");
+            
+        } else {
+            hBox.getChildren().remove(removeButton);
         }
         operationBox.getChildren().clear();
         CheckBox tmp;
@@ -69,6 +80,16 @@ public class RoleController {
         
         
         if(App.selectedRole==null){
+
+            for(Role r : App.allRoles) {
+                if(r.getName().equals(name)) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("Non ci possono essere due ruoli con lo stesso nome");
+                    a.showAndWait();
+                    return;
+                }
+            }
+
             Role tmp = new Role();
             App.admin.addRole(tmp);
             App.allRoles.add(tmp);
@@ -94,5 +115,22 @@ public class RoleController {
     public void cancelButton() throws IOException{
         App.selectedRole = null;
         App.setRoot("showRoles");
+    }
+
+    @FXML 
+    public void remove() throws IOException{
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Sei sicuro di eliminare questo ruolo?");
+        alert.showAndWait();
+
+        if(alert.getResult() == ButtonType.OK) {
+            for(User u : App.users) {
+                u.removeRole(App.selectedRole);
+            }
+            App.save();
+            App.read();
+            App.findAllRoles();
+            App.setRoot("showRoles");
+        }
     }
 }

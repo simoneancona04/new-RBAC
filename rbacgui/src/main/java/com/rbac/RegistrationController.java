@@ -61,6 +61,15 @@ public class RegistrationController {
             return;
         }
 
+        for(User u : App.users) {
+            if(u.getUsername().equals(username)) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("Non ci possono essere due utenti con lo stesso nome");
+                a.showAndWait();
+                return;
+            }
+        }
+
         
         App.users.add(new User(usernameField.getText(), passwordField.getText(), new ArrayList<Role>(), adminCheckBox.isSelected()));
         

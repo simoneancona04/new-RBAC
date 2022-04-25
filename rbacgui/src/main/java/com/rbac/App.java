@@ -48,10 +48,24 @@ public class App extends Application {
 
     @Override
     public void stop() {
+        save();
+    }
+
+    public static void save() {
         ObjectMapper om = new ObjectMapper();
         try {
             om.writeValue(new File(filename), users);
         } catch (IOException e) {}
+    }
+
+    public static void read() {
+        ObjectMapper om = new ObjectMapper();
+        try {
+            users = om.readValue(new File(filename), new TypeReference<ArrayList<User>>(){});
+        } catch (IOException e) {
+            
+            users = new ArrayList<User>();
+        }
     }
 
     public static Parent loadFXML(String fxml) throws IOException {
@@ -60,13 +74,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        ObjectMapper om = new ObjectMapper();
-        try {
-            users = om.readValue(new File(filename), new TypeReference<ArrayList<User>>(){});
-        } catch (IOException e) {
-            
-            users = new ArrayList<User>();
-        }
+        read();
 
         if(users.size() == 0) {
             first = true;
@@ -89,6 +97,7 @@ public class App extends Application {
     }
 
     public static void findAllRoles() {
+        allRoles.clear();
         for(User u : users) {
             for(Role r : u.getRoles()) {
                 if(!allRoles.contains(r)) {
@@ -99,6 +108,7 @@ public class App extends Application {
     }
 
     public static void findAllOperation() {
+        allOperations.clear();
         for(Role r : allRoles) {
             for(Operation op : r.getOperations()) {
                 if(!allOperations.contains(op)) {

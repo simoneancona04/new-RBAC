@@ -53,6 +53,25 @@ public class EditUserController {
 
     }
 
+    @FXML
+    public void remove() throws IOException{
+        if(App.currentUser.isAdmin()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Impossibile rimuovere l'amministratore");
+            alert.showAndWait();
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Sei sicuro di eliminare questo utente?");
+        alert.showAndWait();
+
+        if(alert.getResult() == ButtonType.OK) {
+            App.users.remove(App.selectedUser);
+            App.setRoot("showUsers");
+        }
+    }
+
 
     @FXML
     public void save() throws IOException {

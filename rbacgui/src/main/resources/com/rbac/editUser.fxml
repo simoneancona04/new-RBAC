@@ -36,6 +36,11 @@
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </Button>
+            <Button mnemonicParsing="false" onAction="#remove" text="Elimina utente">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
             <Button id="createButton" fx:id="saveButton" mnemonicParsing="false" onAction="#save" text="Applica" />
          </children>
          <BorderPane.margin>
